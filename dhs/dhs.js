@@ -144,7 +144,7 @@ async function init_list() {
 
 	if (!(typeof window.team === "object")) {
 		window.team = get_json(
-			"https://mahjong.pub/api/data.php?t=team&cid=" + cid
+			"https://mahjong.city/api/data.php?t=team&cid=" + cid
 		);
 	}
 	var tmp = "";
@@ -179,17 +179,17 @@ function init_start() {
 	}
 	if (!(typeof window.c_admin === "object")) {
 		window.c_admin = get_json(
-			"https://mahjong.pub/api/data.php?t=admin&cid=" + cid
+			"https://mahjong.city/api/data.php?t=admin&cid=" + cid
 		);
 	}
 	if (!(typeof window.team === "object")) {
 		window.team = get_json(
-			"https://mahjong.pub/api/data.php?t=team&cid=" + cid
+			"https://mahjong.city/api/data.php?t=team&cid=" + cid
 		);
 	}
 	if (!(typeof window.cls === "object")) {
 		window.cls = get_json(
-			"https://mahjong.pub/api/data.php?t=class&cid=" + cid
+			"https://mahjong.city/api/data.php?t=class&cid=" + cid
 		);
 	}
 	if (window.cls === null) {
@@ -258,7 +258,7 @@ function set_value(type, txt) {
 
 function get_cls(cls) {
 	var arr = get_json(
-		"https://mahjong.pub/api/maj_get.php?p=" +
+		"https://mahjong.city/api/maj_get.php?p=" +
 		window.c_admin.c_s_po +
 		"&data=" +
 		window.this_round[cls].join("_") +
@@ -416,7 +416,7 @@ async function send_paipu() {
 	formdata.append("pw", document.getElementById("c_pw").value);
 	formdata.append("rnd", document.getElementById("c_round").value);
 	formdata.append("json", document.getElementsByName("json")[0].value);
-	fetch("https://mahjong.pub/api/maj_post.php", {
+	fetch("https://mahjong.city/api/maj_post.php", {
 		method: "POST",
 		body: formdata
 	}).then(async (response) => {
