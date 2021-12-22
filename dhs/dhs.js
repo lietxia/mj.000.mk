@@ -433,21 +433,39 @@ async function send_data() {
 
 	var box = document.getElementById("box");
 	box.innerHTML = "";
-	document
-		.querySelector(
-			"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(1)"
-		)
-		.click();
-	await sleep(2000);
 	window.ee = []; //重设缓存
 	window.pp = []; //重设缓存
 	window.tb = []; //重设缓存
-	document
-		.querySelector(
-			"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(4)"
-		)
-		.click();
-	await sleep(2000);
+
+	var btns = document.getElementsByTagName("button");
+	var target, i = btns.length, selected = false;
+	while (i--) {
+		if (btns[i].innerText == "對局管理") {
+			target = btns[i];
+			break;
+		}
+	}
+	if (target) {
+		selected = target.getAttribute("aria-selected") === "true";
+	}
+	if (selected) {//选择
+		alert("暂时不支持多页，记录过多时，右下角【頁條目數量】改为50");
+	} else {
+		document
+			.querySelector(
+				"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(1)"
+			)
+			.click();
+		await sleep(2000);
+
+		document
+			.querySelector(
+				"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(4)"
+			)
+			.click();
+		await sleep(2000);
+	}
+
 	while (document.getElementsByTagName("tr").length < 2) {
 		await sleep(1000);
 	}
@@ -473,7 +491,9 @@ async function send_data() {
 					tmparr[5] = x[i].childNodes[6].innerText;
 					x[i].childNodes[6].childNodes[0].children[1].click();
 					tmparr[6] = window.ee[window.ee.length - 1].uuidEdit;
-					window.tb.push(tmparr);
+					//window.tb.push(tmparr);//反顺序
+					window.tb.unshift(tmparr);//逆转
+
 				}
 			} catch (error) { console.log(error); }
 		}
