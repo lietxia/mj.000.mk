@@ -331,22 +331,26 @@ async function start_class() {
 			parr[i] = tmp[1];
 		}
 	}
-
-	document
-		.querySelector(
-			"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(1)"
-		)
-		.click();
-	await sleep(3000);
 	window.ee = []; //重设缓存
 	window.pp = []; //重设缓存
-	document
-		.querySelector(
-			"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(3)"
-		)
-		.click();
-	await sleep(5000);
+	if (document.querySelector("button[aria-selected=true]").innerText == '對局管理') {
+		//选择
+		await sleep(3000);
+	} else {
+		document
+			.querySelector(
+				"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(1)"
+			)
+			.click();
+		await sleep(3000);
 
+		document
+			.querySelector(
+				"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(3)"
+			)
+			.click();
+		await sleep(5000);
+	}
 	var list = document.querySelector(
 		"#root>div>div>main>div:nth-child(2)>div>div>div>div:nth-child(2)>ul"
 	).childNodes;
@@ -437,18 +441,8 @@ async function send_data() {
 	window.pp = []; //重设缓存
 	window.tb = []; //重设缓存
 
-	var btns = document.getElementsByTagName("button");
-	var target, i = btns.length, selected = false;
-	while (i--) {
-		if (btns[i].innerText == "對局管理") {
-			target = btns[i];
-			break;
-		}
-	}
-	if (target) {
-		selected = target.getAttribute("aria-selected") === "true";
-	}
-	if (selected) {//选择
+	if (document.querySelector("button[aria-selected=true]").innerText == '賽事牌譜') {
+		//选择
 		alert("暂时不支持多页，记录过多时，右下角【頁條目數量】改为50");
 	} else {
 		document
