@@ -65,11 +65,7 @@
                     }
                     srcs.push("https://www.maj-soul.com" + thissrc);
                 }
-                for (var i = 0; i < srcs.length; i++) {
-                    var e = document.createElement('script');
-                    e.src = srcs[i];
-                    document.body.appendChild(e);
-                }
+            
 
                 if (thisVersion != localVersion) {//版本丝符
                     localStorage.setItem('vendors_app_vendor_data', '');
@@ -79,6 +75,11 @@
                 } else {
                     var e = document.createElement('script');
                     e.innerHTML = localStorage.getItem('vendors_app_vendor_data');
+                    document.body.appendChild(e);
+                }
+                for (var i = 0; i < srcs.length; i++) {
+                    var e = document.createElement('script');
+                    e.src = srcs[i];
                     document.body.appendChild(e);
                 }
                 console.log('data', srcs);
