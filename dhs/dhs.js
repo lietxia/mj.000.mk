@@ -333,24 +333,24 @@ async function start_class() {
 	}
 	window.ee = []; //重设缓存
 	window.pp = []; //重设缓存
-	if (document.querySelector("button[aria-selected=true]").innerText == '對局管理') {
-		//选择
-		await sleep(3000);
-	} else {
-		document
-			.querySelector(
-				"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(1)"
-			)
-			.click();
-		await sleep(3000);
+	//if (document.querySelector("button[aria-selected=true]").innerText == '對局管理') {
+	//选择
+	//await sleep(3000);
+	//} else {
+	document
+		.querySelector(
+			"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(1)"
+		)
+		.click();
+	await sleep(3000);
 
-		document
-			.querySelector(
-				"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(3)"
-			)
-			.click();
-		await sleep(5000);
-	}
+	document
+		.querySelector(
+			"#root>div>header>div>div:nth-child(3)>div>div>div>div>button:nth-child(3)"
+		)
+		.click();
+	await sleep(5000);
+	//}
 	var list = document.querySelector(
 		"#root>div>div>main>div:nth-child(2)>div>div>div>div:nth-child(2)>ul"
 	).childNodes;
