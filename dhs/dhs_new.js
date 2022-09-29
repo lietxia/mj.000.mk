@@ -4,7 +4,7 @@
 localStorage.setItem("i18nextLng", "zh-CN");
 
 window.webobj = {
-	api_url: "https://mahjong.city/api/",
+	api_url: "https://cdn.r-mj.com/api/",
 	sleep: function (ms) {
 		return new Promise(resolve => setTimeout(resolve, ms));
 	},

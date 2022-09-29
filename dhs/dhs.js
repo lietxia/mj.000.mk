@@ -7,7 +7,7 @@ function sleep(ms) {//暂停
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
 window.webobj = {
-	api_url: "https://mahjong.city/"
+	api_url: "https://cdn.r-mj.com/"
 };
 function ce(arr) {//创建元素
 	if (!Array.isArray(arr) || arr.length < 1 || arr.length % 2 == 0) { return; }
