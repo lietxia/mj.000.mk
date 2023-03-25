@@ -356,14 +356,16 @@ async function start_class() {
 	).childNodes;
 	var set = ["x", "x", "x", "x"];
 	var cnt = 0;
-
+	var btns = document.getElementsByTagName('button');
+	var btn_com;
+	for (let j = 0; j < btns.length; j++) {
+		if (btns[j].innerText === '添加電腦') {
+			btn_com = btns[j];
+		}
+	}
 	for (var ii = 0; ii < 4; ii++) {
 		if (narr[ii] === null || narr[ii] === "") {
-			document
-				.querySelector(
-					"#root>div>div>main>div:nth-child(2)>div>div>div:nth-child(2)>div:nth-child(3)>button"
-				)
-				.click();
+			btn_com.click();
 			set[ii] = parr[ii];
 			cnt++;
 			await sleep(2000);
@@ -405,9 +407,9 @@ async function start_class() {
 	if (cnt === 4) {
 		//----點擊隨機按鈕---
 		await sleep(1000);
-		var check_box=document.querySelectorAll('label > span');
+		var check_box = document.querySelectorAll('label > span');
 		for (let i = 0; i < check_box.length; i++) {
-			if(check_box[i].innerText==='隨機坐席（後臺）'){
+			if (check_box[i].innerText === '隨機坐席（後臺）') {
 				check_box[i].click();
 			}
 		}
