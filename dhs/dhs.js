@@ -427,7 +427,7 @@ async function start_class() {
 			}
 		}
 		//document.querySelector('#root>div>div>main>div:nth-child(2)>div>div>div:nth-child(2)>div:nth-child(3)').lastChild.click();
-		alert("信息已填好，请点击开始");
+		alert("已经点击了【对局开始】");
 	}
 }
 
