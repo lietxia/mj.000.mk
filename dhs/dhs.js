@@ -412,21 +412,14 @@ async function start_class() {
 				break;
 			}
 		}
-		// document
-		// 	.querySelector(
-		// 		"#root>div>div>main>div:nth-child(2)>div>div>div:nth-child(2)>div:nth-child(2)>label:nth-child(2)>span>span>input"
-		// 	)
-		// 	.click();
 		await sleep(1000);
 		var btns=document.getElementsByTagName('button');
 		for (let i = 0; i < btns.length; i++) {
 			if(btns[i].innerText==='對局開始'){
-				console.log(btns[i]);
 				btns[i].click();
 				break;
 			}
 		}
-		//document.querySelector('#root>div>div>main>div:nth-child(2)>div>div>div:nth-child(2)>div:nth-child(3)').lastChild.click();
 		alert("已经点击了【对局开始】");
 	}
 }
