@@ -405,12 +405,27 @@ async function start_class() {
 	if (cnt === 4) {
 		//----點擊隨機按鈕---
 		await sleep(1000);
-		document
-			.querySelector(
-				"#root>div>div>main>div:nth-child(2)>div>div>div:nth-child(2)>div:nth-child(2)>label:nth-child(2)>span>span>input"
-			)
-			.click();
+		var check_box=document.querySelectorAll('label > span');
+		for (let i = 0; i < check_box.length; i++) {
+			if(check_box[i].innerText==='隨機坐席（後臺）'){
+				check_box[i].click();
+				break;
+			}
+		}
+		// document
+		// 	.querySelector(
+		// 		"#root>div>div>main>div:nth-child(2)>div>div>div:nth-child(2)>div:nth-child(2)>label:nth-child(2)>span>span>input"
+		// 	)
+		// 	.click();
 		await sleep(1000);
+		var btns=document.getElementsByTagName('button');
+		for (let i = 0; i < btns.length; i++) {
+			if(btns[i].innerText==='對局開始'){
+				console.log(btns[i]);
+				btns[i].click();
+				break;
+			}
+		}
 		//document.querySelector('#root>div>div>main>div:nth-child(2)>div>div>div:nth-child(2)>div:nth-child(3)').lastChild.click();
 		alert("信息已填好，请点击开始");
 	}

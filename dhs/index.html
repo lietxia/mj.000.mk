@@ -53,19 +53,23 @@
                 for (var i = 0; i < scriptlist.length; i++) {
                     var thissrc = scriptlist[i].match(patt2);
                     thissrc = thissrc[1];
-                    if (thissrc.indexOf('js/config.js') != -1) {
+                    if (thissrc.startsWith('js/config.js')) {
                         srcs.push("https://www.maj-soul.com/dhs/js/config.js?" + Math.random());
                         continue;
                     }
-                    if (thissrc.indexOf('vendors~app~vendor') != -1) {
+                    if (thissrc.startsWith('vendors~app~vendor')) {
                         thisVersion = thissrc.match(patt3);
                         thisVersion = thisVersion[1];
                         console.log('thisVersion', thisVersion);
                         continue;
                     }
+                    if (thissrc.startsWith('http')) {
+                        srcs.push(thissrc);
+                        continue;
+                    }
                     srcs.push("https://www.maj-soul.com" + thissrc);
                 }
-            
+
 
                 if (thisVersion != localVersion) {//版本丝符
                     localStorage.setItem('vendors_app_vendor_data', '');
