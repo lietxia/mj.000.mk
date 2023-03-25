@@ -390,14 +390,14 @@ async function start_class() {
 	}
 
 	await sleep(2000);
-	var eelast = window.ee.length - 1;
-	window.ee[eelast].prepareSlot[0].initPoint = set[0];
-	window.ee[eelast].prepareSlot[1].initPoint = set[1];
-	window.ee[eelast].prepareSlot[2].initPoint = set[2];
-	window.ee[eelast].prepareSlot[3].initPoint = set[3];
+	var eelast = window.ee[window.ee.length - 1];
+	eelast.prepareSlot[0].initPoint = set[0];
+	eelast.prepareSlot[1].initPoint = set[1];
+	eelast.prepareSlot[2].initPoint = set[2];
+	eelast.prepareSlot[3].initPoint = set[3];
 	window.pp[eelast].updater.enqueueSetState(
-		window.pp[eelast],
-		window.ee[eelast],
+		window.pp[window.ee.length - 1],
+		window.ee[window.ee.length - 1],
 		null,
 		"setState"
 	);
