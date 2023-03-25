@@ -76,7 +76,7 @@
                 if (thisVersion != localVersion) {//版本丝符
                     localStorage.setItem('vendors_app_vendor_data', '');
                     localStorage.setItem('vendors_app_vendor', thisVersion);
-                    xhr.open("GET", "https://corsproxy.lietxia.workers.dev/?https://www.maj-soul.com/dhs/vendors~app~vendor" + thisVersion);
+                    xhr.open("GET", "https://cors.mahjong.eu.org/?https://www.maj-soul.com/dhs/vendors~app~vendor" + thisVersion);
                     xhr.send();
                 } else {
                     var e = document.createElement('script');
@@ -94,7 +94,7 @@
                 document.body.appendChild(e);
                 window.location.hash = '#/login?lng=zh-CN';
             }
-            oReq.open("GET", "https://corsproxy.lietxia.workers.dev/?https://www.maj-soul.com/dhs/");
+            oReq.open("GET", "https://cors.mahjong.eu.org/?https://www.maj-soul.com/dhs/");
             oReq.send();
         }())
     </script>
