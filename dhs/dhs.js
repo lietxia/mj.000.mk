@@ -413,14 +413,14 @@ async function start_class() {
 			}
 		}
 		await sleep(1000);
-		var btns=document.getElementsByTagName('button');
-		for (let i = 0; i < btns.length; i++) {
-			if(btns[i].innerText==='對局開始'){
-				btns[i].click();
-				break;
-			}
-		}
-		alert("已经点击了【对局开始】");
+		// var btns=document.getElementsByTagName('button');
+		// for (let i = 0; i < btns.length; i++) {
+		// 	if(btns[i].innerText==='對局開始'){
+		// 		btns[i].click();
+		// 		break;
+		// 	}
+		// }
+		alert("请点击【对局开始】");
 	}
 }
 
