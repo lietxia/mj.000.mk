@@ -409,7 +409,6 @@ async function start_class() {
 		for (let i = 0; i < check_box.length; i++) {
 			if(check_box[i].innerText==='隨機坐席（後臺）'){
 				check_box[i].click();
-				break;
 			}
 		}
 		await sleep(1000);
