@@ -54,7 +54,7 @@
                     var thissrc = scriptlist[i].match(patt2);
                     thissrc = thissrc[1];
                     if (thissrc.indexOf('js/config.js') != -1) {
-                        srcs.push("https://www.maj-soul.net/dhs/js/config.js?" + Math.random());
+                        srcs.push("https://www.maj-soul.com/dhs/js/config.js?" + Math.random());
                         continue;
                     }
                     if (thissrc.indexOf('vendors~app~vendor') != -1) {
@@ -63,14 +63,14 @@
                         console.log('thisVersion', thisVersion);
                         continue;
                     }
-                    srcs.push("https://www.maj-soul.net" + thissrc);
+                    srcs.push("https://www.maj-soul.com" + thissrc);
                 }
             
 
                 if (thisVersion != localVersion) {//版本丝符
                     localStorage.setItem('vendors_app_vendor_data', '');
                     localStorage.setItem('vendors_app_vendor', thisVersion);
-                    xhr.open("GET", "https://corsproxy.lietxia.workers.dev/?https://www.maj-soul.net/dhs/vendors~app~vendor" + thisVersion);
+                    xhr.open("GET", "https://corsproxy.lietxia.workers.dev/?https://www.maj-soul.com/dhs/vendors~app~vendor" + thisVersion);
                     xhr.send();
                 } else {
                     var e = document.createElement('script');
@@ -88,7 +88,7 @@
                 document.body.appendChild(e);
                 window.location.hash = '#/login?lng=zh-CN';
             }
-            oReq.open("GET", "https://corsproxy.lietxia.workers.dev/?https://www.maj-soul.net/dhs/index.html");
+            oReq.open("GET", "https://corsproxy.lietxia.workers.dev/?https://www.maj-soul.com/dhs/index.html");
             oReq.send();
         }())
     </script>
