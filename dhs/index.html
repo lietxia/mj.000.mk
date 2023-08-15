@@ -2,102 +2,102 @@
 <html lang="zh">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>index</title>
-    <link rel="stylesheet" type="text/css" href="dock.css">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<title>index</title>
+	<link rel="stylesheet" type="text/css" href="dock.css">
 
 </head>
 
 <body>
-    <div id="root"></div>
-    <script>
-        (function () {
-            var patt = new RegExp(/(.+)[\?\&]tdsourcetag\=\w+$/);
-            var arr = patt.exec(window.location.href);
-            if (arr != null) {
-                return window.location.href = arr[1];
-            }
-            if (window.location.protocol == "http:") {
-                return window.location.protocol = "https:"
-            }
-            //---
+	<div id="root"></div>
+	<script>
+		(function () {
+			var patt = new RegExp(/(.+)[\?\&]tdsourcetag\=\w+$/);
+			var arr = patt.exec(window.location.href);
+			if (arr != null) {
+				return window.location.href = arr[1];
+			}
+			if (window.location.protocol == "http:") {
+				return window.location.protocol = "https:"
+			}
+			//---
 
-            if (localStorage.getItem('vendors_app_vendor_data') == '') {
-                localStorage.setItem('vendors_app_vendor', '');
-            }
+			if (localStorage.getItem('vendors_app_vendor_data') == '') {
+				localStorage.setItem('vendors_app_vendor', '');
+			}
 
-            var oReq = new XMLHttpRequest();
-            var xhr = new XMLHttpRequest();
-            xhr.onload = function () {
-                var e = document.createElement('script');
-                text = "window.pp = [];window.ee = [];" + this.responseText;
-                text = text.replace(
-                    '_.prototype.setState=function(e,t){',
-                    '_.prototype.setState=function(e,t){console.log("setstate", e, t); if (typeof e.contest_name != "undefined" || typeof e.query != "undefined" || typeof e.prepareSlot != "undefined" || typeof e.uuidEdit != "undefined") { window.pp.push(this); window.ee.push(e); }'
-                );
-                localStorage.setItem('vendors_app_vendor_data', text);
-                e.innerHTML = text;
-                document.body.appendChild(e);
-            }
+			var oReq = new XMLHttpRequest();
+			var xhr = new XMLHttpRequest();
+			xhr.onload = function () {
+				var e = document.createElement('script');
+				text = "window.pp = [];window.ee = [];" + this.responseText;
+				text = text.replace(
+					'_.prototype.setState=function(e,t){',
+					'_.prototype.setState=function(e,t){console.log("setstate", e, t); if (typeof e.contest_name != "undefined" || typeof e.query != "undefined" || typeof e.prepareSlot != "undefined" || typeof e.uuidEdit != "undefined") { window.pp.push(this); window.ee.push(e); }'
+				);
+				localStorage.setItem('vendors_app_vendor_data', text);
+				e.innerHTML = text;
+				document.body.appendChild(e);
+			}
 
-            oReq.onload = function () {
-                //<script type="text/javascript" src="([^'"]+)">
-                var patt = new RegExp(/<script (type="text\/javascript" )?src="[^'"]+">/g);
-                var patt2 = new RegExp(/src="([^'"]+)"/);
-                var patt3 = new RegExp(/vendors~app~vendor(.+)/);
-                var scriptlist = this.responseText.match(patt);
-                var thisVersion = '';
-                var localVersion = localStorage.getItem('vendors_app_vendor');
-                var srcs = [];
-                for (var i = 0; i < scriptlist.length; i++) {
-                    var thissrc = scriptlist[i].match(patt2);
-                    thissrc = thissrc[1];
-                    if (thissrc.indexOf('js/config.js') != -1) {
-                        srcs.push("https://www.maj-soul.com/dhs/js/config.js?" + Math.random());
-                        continue;
-                    }
-                    if (thissrc.indexOf('vendors~app~vendor') != -1) {
-                        thisVersion = thissrc.match(patt3);
-                        thisVersion = thisVersion[1];
-                        console.log('thisVersion', thisVersion);
-                        continue;
-                    }
-                    if (thissrc.startsWith('http')) {
-                        srcs.push(thissrc);
-                    }
-                    else {
-                        srcs.push("https://www.maj-soul.com" + thissrc);
-                    }
+			oReq.onload = function () {
+				//<script type="text/javascript" src="([^'"]+)">
+				var patt = new RegExp(/<script (type="text\/javascript" )?src="[^'"]+">/g);
+				var patt2 = new RegExp(/src="([^'"]+)"/);
+				var patt3 = new RegExp(/vendors~app~vendor(.+)/);
+				var scriptlist = this.responseText.match(patt);
+				var thisVersion = '';
+				var localVersion = localStorage.getItem('vendors_app_vendor');
+				var srcs = [];
+				for (var i = 0; i < scriptlist.length; i++) {
+					var thissrc = scriptlist[i].match(patt2);
+					thissrc = thissrc[1];
+					if (thissrc.indexOf('js/config.js') != -1) {
+						srcs.push("https://www.maj-soul.com/dhs/js/config.js?" + Math.random());
+						continue;
+					}
+					if (thissrc.indexOf('vendors~app~vendor') != -1) {
+						thisVersion = thissrc.match(patt3);
+						thisVersion = thisVersion[1];
+						console.log('thisVersion', thisVersion);
+						continue;
+					}
+					if (thissrc.startsWith('http')) {
+						srcs.push(thissrc);
+					}
+					else {
+						srcs.push("https://www.maj-soul.com" + thissrc);
+					}
 
-                }
+				}
 
 
-                if (thisVersion != localVersion) {//版本丝符
-                    localStorage.setItem('vendors_app_vendor_data', '');
-                    localStorage.setItem('vendors_app_vendor', thisVersion);
-                    xhr.open("GET", "https://cors.000.mk/?https://www.maj-soul.com/dhs/vendors~app~vendor" + thisVersion);
-                    xhr.send();
-                } else {
-                    var e = document.createElement('script');
-                    e.innerHTML = localStorage.getItem('vendors_app_vendor_data');
-                    document.body.appendChild(e);
-                }
-                for (var i = 0; i < srcs.length; i++) {
-                    var e = document.createElement('script');
-                    e.src = srcs[i];
-                    document.body.appendChild(e);
-                }
-                console.log('data', srcs);
-                var e = document.createElement('script');
-                e.src = "dhs.js?" + Math.random()
-                document.body.appendChild(e);
-                window.location.hash = '#/login?lng=zh-CN';
-            }
-            oReq.open("GET", "https://cors.000.mk/?https://www.maj-soul.com/dhs/");
-            oReq.send();
-        }())
-    </script>
+				if (thisVersion != localVersion) {//版本丝符
+					localStorage.setItem('vendors_app_vendor_data', '');
+					localStorage.setItem('vendors_app_vendor', thisVersion);
+					xhr.open("GET", "https://cp.r-mj.com/?https://www.maj-soul.com/dhs/vendors~app~vendor" + thisVersion);
+					xhr.send();
+				} else {
+					var e = document.createElement('script');
+					e.innerHTML = localStorage.getItem('vendors_app_vendor_data');
+					document.body.appendChild(e);
+				}
+				for (var i = 0; i < srcs.length; i++) {
+					var e = document.createElement('script');
+					e.src = srcs[i];
+					document.body.appendChild(e);
+				}
+				console.log('data', srcs);
+				var e = document.createElement('script');
+				e.src = "dhs.js?" + Math.random()
+				document.body.appendChild(e);
+				window.location.hash = '#/login?lng=zh-CN';
+			}
+			oReq.open("GET", "https://cp.r-mj.com/?https://www.maj-soul.com/dhs/");
+			oReq.send();
+		}())
+	</script>
 </body>
 
 </body>
