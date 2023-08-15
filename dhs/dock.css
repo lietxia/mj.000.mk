@@ -11,7 +11,8 @@ select {
 }
 
 body {
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
+	margin-bottom: 300px !important;
 }
 
 #tool_div input:focus,
