@@ -12,7 +12,7 @@ select {
 
 body {
 	/* overflow-x: hidden; */
-	margin-bottom: 300px !important;
+	margin-bottom: 500px !important;
 }
 
 #tool_div input:focus,
@@ -69,7 +69,7 @@ body {
 	border: 1px solid #c0c0c0;
 	height: 40px;
 	width: 60%;
-	background-color:#FFF;
+	background-color: #FFF;
 }
 
 #tool_div div {
@@ -93,8 +93,10 @@ input[type="reset"],
 input[type="text"],
 input[type="password"] {
 	-webkit-appearance: none;
+	appearance: none;
 }
 
 textarea {
 	-webkit-appearance: none;
+	appearance: none;
 }
