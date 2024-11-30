@@ -53,8 +53,8 @@
 				for (var i = 0; i < scriptlist.length; i++) {
 					var thissrc = scriptlist[i].match(patt2);
 					thissrc = thissrc[1];
-					if (thissrc.indexOf('js/config.js') != -1) {
-						srcs.push("https://www.maj-soul.com/dhs/js/config.js?" + Math.random());
+					if (thissrc.indexOf('contest-login/js/config.js') != -1) {
+						srcs.push("https://www.maj-soul.com/contest-login/js/config.js?" + Math.random());
 						continue;
 					}
 					if (thissrc.indexOf('vendors~app~vendor') != -1) {
@@ -94,7 +94,7 @@
 				document.body.appendChild(e);
 				window.location.hash = '#/login?lng=zh-CN';
 			}
-			oReq.open("GET", "https://cp.r-mj.com/?https://www.maj-soul.com/dhs/");
+			oReq.open("GET", "https://cp.r-mj.com/?https://www.maj-soul.com/contest-login/");
 			oReq.send();
 		}())
 	</script>
