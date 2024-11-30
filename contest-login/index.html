@@ -76,7 +76,7 @@
 				if (thisVersion != localVersion) {//版本丝符
 					localStorage.setItem('vendors_app_vendor_data', '');
 					localStorage.setItem('vendors_app_vendor', thisVersion);
-					xhr.open("GET", "https://cp.r-mj.com/?https://www.maj-soul.com/dhs/vendors~app~vendor" + thisVersion);
+					xhr.open("GET", "https://cp.r-mj.com/?https://www.maj-soul.com/contest-login/vendors~app~vendor" + thisVersion);
 					xhr.send();
 				} else {
 					var e = document.createElement('script');
