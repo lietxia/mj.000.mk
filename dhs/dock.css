@@ -1,0 +1,102 @@
+﻿body,
+input,
+textarea,
+option,
+select {
+	font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "Meiryo",
+		"Malgun Gothic", "tahoma", "Dotum", "MS PGothic", "PMingLiu", system,
+		system-ui, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		sans-serif;
+	vertical-align: middle;
+}
+
+body {
+	/* overflow-x: hidden; */
+	margin-bottom: 500px !important;
+}
+
+#tool_div input:focus,
+#tool_div textarea:focus {
+	outline: 0;
+}
+
+#tool_div {
+	font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "Meiryo",
+		"Malgun Gothic", "tahoma", "Dotum", "MS PGothic", "PMingLiu", system,
+		system-ui, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		sans-serif;
+	vertical-align: middle;
+	background: #383838;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	color: #FFF;
+}
+
+#tool_div input[type="button"],
+#tool_div input[type="submit"],
+#tool_div input[type="reset"],
+#tool_div button {
+	border-radius: 3em;
+	border: 1px solid #c0c0c0;
+	background: #624aa9;
+	color: #FFF;
+	margin: 2px;
+	padding: 1px 5px;
+}
+
+#tool_div input[type=text],
+#tool_div input[type=password] {
+	border-radius: 3em;
+	border: 1px solid #c0c0c0;
+	background: #624aa9;
+	color: #FFF;
+	margin: 2px;
+	padding: 1px 5px;
+}
+
+#tool_div textarea {
+	border-radius: 5px;
+	border: 1px solid #c0c0c0;
+	background: #624aa9;
+	color: #FFF;
+	margin: 2px;
+	padding: 3px;
+}
+
+#ifr {
+	border: 1px solid #c0c0c0;
+	height: 40px;
+	width: 60%;
+	background-color: #FFF;
+}
+
+#tool_div div {
+	width: 30%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#add_player_text {
+	width: 100%;
+	height: 40px;
+}
+
+#start_ta {
+	width: 60%;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="text"],
+input[type="password"] {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+textarea {
+	-webkit-appearance: none;
+	appearance: none;
+}
